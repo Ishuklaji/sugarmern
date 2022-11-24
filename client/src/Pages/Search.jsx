@@ -24,9 +24,15 @@ export default function Search(){
         }
       }
 
+
      useEffect(() => {
-      getData()
-     },[searchQuery])
+    let timerOut = setTimeout(()=>{
+        getData()
+      },1000);
+
+      return () => clearTimeout(timerOut);
+     
+     },[searchQuery]);
 
     return <div>
         <Grid display='grid' templateColumns='repeat(4, 1fr)'  m='10px'>
@@ -39,7 +45,8 @@ export default function Search(){
   <Skeleton height='414px' width='307px'/>
   <Skeleton height='414px' width='307px'/>
 </Grid>
-   </Box>:products.map((elem) => (elem.price !== undefined && <GridItem><ProductBox rating={elem.rating} catg={elem.catg} id={elem.id} url={elem.image} description={elem.name} price={elem.price} /></GridItem>))}
+   </Box>:products.map((elem) =>
+    (elem.price !== undefined && <GridItem><ProductBox rating={elem.rating} catg={elem.catg} id={elem.id} url={elem.image} description={elem.name} price={elem.price} /></GridItem>))}
 
 
         </Grid>
