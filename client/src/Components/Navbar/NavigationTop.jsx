@@ -56,13 +56,24 @@ const getTotalQuantity = () => {
    </Box>
    <Box className={styles.searchtop}>
    <InputGroup >
-   <Input  border='1px solid white' borderRightRadius='0px' onChange={(e)=>setSearchQuery(e.target.value)}
+   <Input  border='1px solid white' borderRightRadius='0px' onKeyDown={(e)=>{
+    // console.log(e.key);
+ if(e.key ==="Enter"){
+  console.log("enter pressh tohs")
+  handleSearch();
+  
+
+ }
+   }} onChange={(e)=>{
+    setSearchQuery(e.target.value)
+   
+   }}
    p='0px 15px' color='white' value={searchQuery}
    placeholder='Try liquid lipstick' size='md' variant='unstyled' />
    {/* <IconButton as={FiSearch} size='xs'  w={6} h={6} mr='6px' color='black' bg='white' variant='unstyled'/> */}
-   <Link to='/search'><Button leftIcon={<FiSearch />} bg='white'borderLeftRadius='0px'pr=' 25px' pl='10px' variant='unstyled'
-   onClick={handleSearch} 
-   >Search</Button></Link>
+   <Link to='/search'><Button leftIcon={<FiSearch />} 
+   bg='white'borderLeftRadius='0px'pr=' 25px' pl='10px' variant='unstyled'
+   onClick={handleSearch} >Search</Button></Link>
    </InputGroup>
 
    </Box>
