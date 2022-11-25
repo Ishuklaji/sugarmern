@@ -20,6 +20,7 @@ import {
   ModalCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
+
 import { MdKeyboardArrowRight } from "react-icons/md";
 import CartProduct from "../Components/ProductBox/CartProduct";
 import { v4 as uuidv4 } from "uuid";
