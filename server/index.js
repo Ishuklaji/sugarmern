@@ -1,29 +1,35 @@
-import express from "express"
-import connection from "./config/db.js";
-import { signup, login, userLoggedIn } from "./controllers/user.controller.js";
+const express = require("express");
+const connection = require("./config/db.js");
+
+const {
+  signup,
+  login,
+  userLoggedIn,
+} = require("./controllers/user.controller.js");
+const productRouter = require("./routes/product.routes");
 
 const app = express();
 app.use(express.json());
 
-app.get('/',(req,res)=>{
-    res.send({
-        message:"welcome"
-    })
-})
+app.get("/", (req, res) => {
+  res.send({
+    message: "welcome",
+  });
+});
 
-app.post("/signup",signup)
+app.use("/api/products", productRouter);
 
-app.post("/login",login)
+app.post("/signup", signup);
 
-app.get("/userLoggedIn",userLoggedIn)
+app.post("/login", login);
 
+app.get("/userLoggedIn", userLoggedIn);
 
-
-app.listen(8080,()=>{
-    try {
-        connection();
-        console.log('listening on port 8080');
-    } catch (error) {
-        console.log(error);
-    }
-})
+app.listen(8080, () => {
+  try {
+    connection();
+    console.log("listening on port 8080");
+  } catch (error) {
+    console.log(error);
+  }
+});
