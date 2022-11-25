@@ -1,0 +1,290 @@
+[
+    {
+    "amount": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-aquaholic-water-boost-mask-13548848087123.jpg?v=1619115321",
+    "name": "Aquaholic Water Boost Mask",
+    "price": 149,
+    "rating": 4.7
+
+    },
+    {
+    "amount": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-citrus-got-real-cooling-stick-28037939429459.jpg?v=1644409181",
+    "name": "CITRUS GOT REAL COOLING STICK",
+    "price": 399,
+    "rating": 4.6
+    },
+    {
+    "amount": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-charcoal-patrol-bubble-mask-12775750500435.jpg?v=1644399394",
+    "name": "CHARCOAL PATROL BUBBLE MASK",
+    "price": 148,
+    "rating": 4.9
+    },
+    {
+    "amount": 4,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-cheat-sheet-clarifying-mask-12775754203219.jpg?v=1619113702",
+    "name": "CHEAT SHEET CLARIFYING MASK",
+    "price": 99,
+    "rating": 4.9
+    },
+    {
+    "amount": 5,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-cheat-sheet-anti-aging-mask-12775753744467.jpg?v=1619113715",
+    "name": "CHEAT SHEET ANTI-AGING",
+    "price": 99,
+    "rating": 4.8
+    },
+    {
+    "amount": 6,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/Aquaholic-Extention-Spot-gel-2.jpg?v=1626363976",
+    "name": "AQUAHOLIC CLARIFYING SPOT GEL",
+    "price": 399,
+    "rating": 4.7
+    },
+    {
+    "amount": 7,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/CCEyeFirmingCreamWBG-3.jpg?v=1628610287",
+    "name": "COFFEE CULTURE EYE FIRMING CREAM",
+    "price": 399,
+    "rating": 4.9
+    },
+    {
+    "amount": 8,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/moisturiser.jpg?v=1626968292",
+    "name": "AQUAHOLIC PRIMING MOISTURIZER",
+    "price": 499,
+    "rating": 4.8
+    },
+    {
+    "amount": 9,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-swipe-right-cleansing-water-12771592732755.jpg?v=1619106450",
+    "name": "SWIPE RIGHT CLEANSING WATER",
+    "price": 399,
+    "rating": 5
+    },
+    {
+    "amount": 10,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-citrus-got-real-refreshing-mist-28037990842451.jpg?v=1619155739",
+    "name": "CITRUS GOT REAL REFRESHING MIST",
+    "price": 499,
+    "rating": 5
+    },
+    {
+    "amount": 11,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/CCPorePurifyingMaskWBG-3.jpg?v=1628610298",
+    "name": "COFFEE CULTURE PORE PURIFYING MASK",
+    "price": 499,
+    "rating": 5
+    },
+    {
+    "amount": 12,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/Aquaholic-Pore-Exfoliating-Scrub-3_1.jpg?v=1626363966",
+    "name": "AQUAHOLIC PORE EXFOLIATING SCRUB",
+    "price": 399,
+    "rating": 5
+    },
+    {
+    "amount": 13,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/CCBrighteningSerumWBG-3.jpg?v=1628610327",
+    "name": "COFFEE CULTURE BRIGHTENING SERUM",
+    "price": 499,
+    "rating": 5.8
+    },
+    {
+    "amount": 14,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-acne-combo-pack-of-6-14056089157715.jpg?v=1619113757",
+    "name": "ACNE COMBO (PACK OF 6)",
+    "price": 559,
+    "rating": 8
+    },
+    {
+    "amount": 15,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-charcoal-patrol-bubble-mask-pack-of-6-12784621125715.jpg?v=1619114540",
+    "name": "CHARCOAL PATROL BUBBLE MASK(PACK OF 6)",
+    "price": 699,
+    "rating": 6.9
+    },
+    {
+    "amount": 16,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/1_3cb613fc-43c8-4763-b3e6-5ccf4761c0d5.jpg?v=1641570994",
+    "name": "POWER CLAY MASK STICK",
+    "price": 699,
+    "rating": 3.9
+    },
+    {
+    "amount": 17,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/Instant-Pore-Cleansing-Mask-1_1.jpg?v=1626423690",
+    "name": "AQUAHOLIC INSTANT PORE CLEANSING MASK",
+    "price": 499,
+    "rating": "4.8(9)"
+    },
+    {
+    "amount": 18,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/373532210-artboard-1.jpg?v=1646149967",
+    "name": "CITRUS GOT REAL RETINOL BRIGHTENING SERUM",
+    "price": 499,
+    "rating": 3.9
+    },
+    {
+    "amount": 19,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/Hyaluronic-Serum-3_1.jpg?v=1626423730",
+    "name": "AQUAHOLIC HYALURONIC SERUM",
+    "price": 499,
+    "rating": 3.9
+    },
+    {
+    "amount": 20,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-cheat-sheet-clarifying-mask-pack-of-6-12784634527827.jpg?v=1619114589",
+    "name": "CHEAT SHEET CLARIFYING MASK (PACK OF 6)",
+    "price": 499,
+    "rating": 3.9
+    },
+    {
+    "amount": 21,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-cheat-sheet-anti-aging-mask-pack-of-6-12784629776467.jpg?v=1619114575",
+    "name": "CHEAT SHEET ANTI-AGING MASK(PACK OF 6)",
+    "price": 499,
+    "rating": 3.9
+    },
+    {
+    "amount": 22,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/373515742-01.jpg?v=1646235720",
+    "name": "CITRUS GOT REAL BRIGHTENING PEEL",
+    "price": 599,
+    "rating": 5
+    },
+    {
+    "amount": 23,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-citrus-got-real-daily-moisturizer-28038347292755.jpg?v=1619155748",
+    "name": "CITRUS GOT REAL DAILY MOISTURIZER",
+    "price": 499,
+    "rating": 3.6
+    },
+    {
+    "amount": 24,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/Hyderattingkit.jpg?v=1626968294",
+    "name": "AQUHOLIC HYDRATING STICK",
+    "price": 899,
+    "rating": 3.6
+    },
+    {
+    "amount": 25,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/Hydrating-Primer-3.jpg?v=1626423647",
+    "name": "AQUAHOLIC HYDRATING PRIMER",
+    "price": 699,
+    "rating": 2.6
+    },
+    {
+    "amount": 26,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/Coffee-culture-hydrating-mist-01.jpg?v=1644312897",
+    "name": "COFFEE CULTURE HYDRATING MIST",
+    "price": 499,
+    "rating": "5(6)"
+    },
+    {
+    "amount": 27,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/Coffee-culture-cleansing-balm-stick-01.jpg?v=1643375708",
+    "name": "COFFEE CULTURE CLEANSING BALM STICK",
+    "price": 699,
+    "rating": 4.9
+    },
+    {
+    "amount": 28,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-charcoal-patrol-face-mask-12775752564819.jpg?v=1619113688",
+    "name": "CHARCOAL PATROL FACE MASK",
+    "price": 99,
+    "rating": 4.9
+    },
+    {
+    "amount": 29,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-swipe-right-hand-rub-01-roaring-rose-15541873836115.jpg?v=1619125116",
+    "name": "SWIPE RIGHT HAND RUB",
+    "price": 74,
+    "rating": 4.9
+    },
+    {
+    "amount": 30,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-sugar-cheat-sheet-brightening-mask-12775754039379.jpg?v=1619113729",
+    "name": "SUGAR CHEAT SHEET BRIGHTENING MASK",
+    "price": 149,
+    "rating": 7.6
+    },
+    {
+    "amount": 31,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-sugar-cheat-sheet-pore-care-mask-12775754563667.jpg?v=1619113743",
+    "name": "SUGAR CHEAT SHEET PORE CARE MASK",
+    "price": 149,
+    "rating": 4.6
+    },
+    {
+    "amount": 32,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-total-mask-erade-pack-of-3-14056092074067.jpg?v=1644930751",
+    "name": "TOTAL MASK-ERADE (PACK OF 3)",
+    "price": 299,
+    "rating": 7.6
+    },
+    {
+    "amount": 33,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-what-a-treat-pack-of-3-14056089714771.jpg?v=1619113879",
+    "name": "WHAT A TREAT! (PACK OF 3)",
+    "price": 299,
+    "rating": 7.6
+    },
+    {
+    "amount": 34,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-get-unmasked-pack-of-3-14056092467283.jpg?v=1619113899",
+    "name": "GET UNMASKED (PACK OF 3)",
+    "price": 299,
+    "rating": "4.8(8)"
+    },
+    {
+    "amount": 35,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-the-clear-glow-pack-of-12-14056095613011.jpg?v=1644585135",
+    "name": "THE CLEAR GLOW (PACK OF 12)",
+    "price": 1149,
+    "rating": 6.9
+    },
+    {
+    "amount": 36,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-my-face-shields-pack-of-6-28122594541651.jpg?v=1619113968",
+    "name": "MY FACE SHIELDS (PACK OF 6)",
+    "price": 599,
+    "rating": 8
+    },
+    {
+    "amount": 37,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-cheat-sheet-pore-care-mask-pack-of-6-12784627187795.jpg?v=1619114552",
+    "name": "CHEAT SHEET PORE CARE MASK (PACK OF 6)",
+    "price": 699,
+    "rating": 9
+    },
+    {
+    "amount": 38,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-charcoal-patrol-face-mask-pack-of-6-12784634986579.jpg?v=1619114602",
+    "name": "CHARCOAL PATROL FACE MASK (PACK OF 6)",
+    "price": 449,
+    "rating": 6.8
+    },
+    {
+    "amount": 39,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-power-clay-peel-off-mask-13470537646163.jpg?v=1619115274",
+    "name": "POWER CLAY PEEL OFF MASK",
+    "price": 249,
+    "rating": 4.7
+    },
+    {
+    "amount": 40,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-power-clay-3-min-pore-cleansing-mask-13470539645011.jpg?v=1619115283",
+    "name": "POWER CLAY 3-MIN PORE CLEANSING MASK",
+    "price": 249,
+    "rating": 4.6
+    },
+    {
+    "amount": 41,
+    "image": "https://cdn.shopify.com/s/files/1/0906/2558/products/sugar-cosmetics-citrus-got-real-spf30-sunscreen-28038344736851.jpg?v=1619155723",
+    "name": "CITRUS GOT REAL SPF30 SUNSCREEN",
+    "price": 399,
+    "rating": 4.6
+    }
+    ]
