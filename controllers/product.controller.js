@@ -26,7 +26,7 @@ async function getProductsPaginated(req, res) {
 
     const totalProducts = await productModel
       .find({
-        title: {
+        name: {
           $regex: search,
         },
       })
@@ -34,7 +34,7 @@ async function getProductsPaginated(req, res) {
 
     const products = await productModel
       .find({
-        title: {
+        name: {
           $regex: search,
         },
       })

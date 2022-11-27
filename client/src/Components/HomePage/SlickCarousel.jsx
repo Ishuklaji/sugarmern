@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 export default function SimpleSlider() {
   const cart = useSelector((state) => state.cart.cartItems);
   const [imageUrls, setImageUrls] = useState([]);
+  const [justinImages, setJustinImages] = useState([]);
   console.log(cart);
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
@@ -23,16 +24,13 @@ export default function SimpleSlider() {
     );
   }
 
-  const bestsellerImages = [];
   useEffect(() => {
-    console.log("this is message");
-    fetch("http://localhost:8080/api/products")
+    fetch("https://scserver.onrender.com/api/products?pageSize=16&page=1")
       .then((res) => res.json())
       .then((res) => {
-        console.log("Res ponse sfkdljfsdlkfjds;lkfjdsl;j");
         let products = res.data.products;
+        const bestsellerImages = [];
         for (var i = 0; i < 8; i++) {
-          console.log(products[i], "THIS is response");
           bestsellerImages.push({
             url: products[i].image,
             description: products[i].name,
@@ -40,6 +38,20 @@ export default function SimpleSlider() {
           });
         }
         setImageUrls(bestsellerImages);
+      });
+    fetch("https://scserver.onrender.com/api/products?pageSize=16&page=1")
+      .then((res) => res.json())
+      .then((res) => {
+        let products = res.data.products;
+        const bestsellerImages = [];
+        for (var i = 8; i < 16; i++) {
+          bestsellerImages.push({
+            url: products[i].image,
+            description: products[i].name,
+            price: products[i].price,
+          });
+        }
+        setJustinImages(bestsellerImages);
       });
   }, []);
 
@@ -209,48 +221,48 @@ export default function SimpleSlider() {
     "https://d32baadbbpueqt.cloudfront.net/Homepage/6359ed8e-1f43-44aa-b602-5142a7bfbd9f.jpg",
   ];
 
-  const justinImages = [
-    {
-      url: "https://cdn.shopify.com/s/files/1/0906/2558/products/427145088-pujo-everyday-kit-wbg-01.jpg?v=1662999028",
-      description: "Pujo Special Makeup Kit",
-      price: "2099",
-    },
-    {
-      url: "https://cdn.shopify.com/s/files/1/0906/2558/products/01_with_pouch-_without-sleeves.jpg?v=1662567157",
-      description: "Pujo Special Makeup Kit",
-      price: "2099",
-    },
-    {
-      url: "https://cdn.shopify.com/s/files/1/0906/2558/products/1_2d186f9b-9024-4e23-a0d2-a55b7671e89c.jpg?v=1657123108",
-      description: "Pujo Special Makeup Kit",
-      price: "2099",
-    },
-    {
-      url: "https://cdn.shopify.com/s/files/1/0906/2558/products/Monsoon-Makeup-Kit---WBG-Images_1_66ba2237-0dad-42dc-88ea-c2d45555dd6a.jpg?v=1657814549",
-      description: "Pujo Special Makeup Kit",
-      price: "2099",
-    },
-    {
-      url: "https://cdn.shopify.com/s/files/1/0906/2558/products/399160329-9-to-5-makeup-kit-wbg-01.jpg?v=1654013564",
-      description: "Pujo Special Makeup Kit",
-      price: "2099",
-    },
-    {
-      url: "https://cdn.shopify.com/s/files/1/0906/2558/products/2_d5e8f5f6-db6f-43d4-a1ac-1da7b22fdc1b.jpg?v=1652943021",
-      description: "Pujo Special Makeup Kit",
-      price: "2099",
-    },
-    {
-      url: "https://cdn.shopify.com/s/files/1/0906/2558/products/1_61109b87-1ae6-4cb4-8550-5b57d688a4eb.jpg?v=1651852771",
-      description: "Pujo Special Makeup Kit",
-      price: "2099",
-    },
-    {
-      url: "https://cdn.shopify.com/s/files/1/0906/2558/products/382512089-mettle-priming-balm-01.jpg?v=1648654861",
-      description: "Pujo Special Makeup Kit",
-      price: "2099",
-    },
-  ];
+  // const justinImages = [
+  //   {
+  //     url: "https://cdn.shopify.com/s/files/1/0906/2558/products/427145088-pujo-everyday-kit-wbg-01.jpg?v=1662999028",
+  //     description: "Pujo Special Makeup Kit",
+  //     price: "2099",
+  //   },
+  //   {
+  //     url: "https://cdn.shopify.com/s/files/1/0906/2558/products/01_with_pouch-_without-sleeves.jpg?v=1662567157",
+  //     description: "Pujo Special Makeup Kit",
+  //     price: "2099",
+  //   },
+  //   {
+  //     url: "https://cdn.shopify.com/s/files/1/0906/2558/products/1_2d186f9b-9024-4e23-a0d2-a55b7671e89c.jpg?v=1657123108",
+  //     description: "Pujo Special Makeup Kit",
+  //     price: "2099",
+  //   },
+  //   {
+  //     url: "https://cdn.shopify.com/s/files/1/0906/2558/products/Monsoon-Makeup-Kit---WBG-Images_1_66ba2237-0dad-42dc-88ea-c2d45555dd6a.jpg?v=1657814549",
+  //     description: "Pujo Special Makeup Kit",
+  //     price: "2099",
+  //   },
+  //   {
+  //     url: "https://cdn.shopify.com/s/files/1/0906/2558/products/399160329-9-to-5-makeup-kit-wbg-01.jpg?v=1654013564",
+  //     description: "Pujo Special Makeup Kit",
+  //     price: "2099",
+  //   },
+  //   {
+  //     url: "https://cdn.shopify.com/s/files/1/0906/2558/products/2_d5e8f5f6-db6f-43d4-a1ac-1da7b22fdc1b.jpg?v=1652943021",
+  //     description: "Pujo Special Makeup Kit",
+  //     price: "2099",
+  //   },
+  //   {
+  //     url: "https://cdn.shopify.com/s/files/1/0906/2558/products/1_61109b87-1ae6-4cb4-8550-5b57d688a4eb.jpg?v=1651852771",
+  //     description: "Pujo Special Makeup Kit",
+  //     price: "2099",
+  //   },
+  //   {
+  //     url: "https://cdn.shopify.com/s/files/1/0906/2558/products/382512089-mettle-priming-balm-01.jpg?v=1648654861",
+  //     description: "Pujo Special Makeup Kit",
+  //     price: "2099",
+  //   },
+  // ];
 
   const toppicks = [
     "https://d32baadbbpueqt.cloudfront.net/Homepage/fd062254-fcc7-432d-94dc-9d7da4a6fc62.gif",
