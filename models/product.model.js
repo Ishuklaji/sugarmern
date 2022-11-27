@@ -1,4 +1,3 @@
-const { modalUnstyledClasses } = require("@mui/material");
 const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema({
