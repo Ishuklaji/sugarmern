@@ -18,6 +18,7 @@ async function getProductsPaginated(req, res) {
   try {
     let {
       search = "",
+      cat = "",
       pageSize = 10,
       page = 1,
       sortBy = "createdAt",
@@ -31,7 +32,8 @@ async function getProductsPaginated(req, res) {
         },
       })
       .count();
-
+    // console.log(cat, search);
+    // cat = cat.toLowerCase();
     const products = await productModel
       .find({
         name: {
