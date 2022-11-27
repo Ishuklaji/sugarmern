@@ -177,7 +177,9 @@ export default function Cart() {
         if (url === "http://localhost:3000/") {
           setTimeout(() => dispatch(removeAll()), 2000);
         }
-        window.location = url;
+        setInterval(() => {
+          window.location = url;
+        }, 4000);
       })
       .catch((e) => {
         console.error(e.error);
