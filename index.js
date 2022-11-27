@@ -7,6 +7,7 @@ const {
   userLoggedIn,
 } = require("./controllers/user.controller.js");
 const productRouter = require("./routes/product.routes");
+const userRouter = require("./routes/userRouter.js");
 
 const app = express();
 app.use(express.json());
@@ -16,7 +17,7 @@ app.get("/", (req, res) => {
     message: "welcome",
   });
 });
-
+app.use("/api/user", userRouter);
 app.use("/api/products", productRouter);
 
 app.post("/signup", signup);
