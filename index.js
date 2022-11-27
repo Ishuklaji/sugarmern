@@ -1,5 +1,6 @@
 const express = require("express");
 const connection = require("./config/db.js");
+const cors = require("cors");
 
 const {
   signup,
@@ -11,6 +12,7 @@ const userRouter = require("./routes/userRouter.js");
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send({
