@@ -1,10 +1,10 @@
 const bcrypt = require("bcryptjs");
 const userModel = require("../models/user.model.js");
-const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
+let jwt = require("jsonwebtoken");
+const JWT_SECRET = "774bgtumnhnhydscffsr";
 
 dotenv.config();
-const JWT_SECRET = process.env.JWT_SECRET;
 
 const signup = async (req, res) => {
   const user = req.body;

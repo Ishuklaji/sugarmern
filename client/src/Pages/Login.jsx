@@ -34,8 +34,64 @@ const Login = () => {
   const [phone, setPhone] = useState(null);
   const dispatch = useDispatch();
   const [status, setStatus] = useState(false);
+  const toast = useToast();
+  const [accessToken, setAccessToken] = useState("");
+
+  function getAccessToken(pin) {
+    fetch("https://scserver.onrender.com/api/user/signup/verify", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ number: phone, otp: randomOtp }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === "success") {
+          setRandomOtp(data.otp);
+          otp = data.otp;
+          // console.log(randomOtp, "randomOtp");
+          toast({
+            title: "OTP sent successfully",
+            description: `Your OTP is ${data.otp}.`,
+            status: "success",
+            duration: 9000,
+            isClosable: true,
+            position: "top",
+          });
+        } else alert("Otp didn't sent");
+      });
+  }
+
+  let otp = "";
+  function getOtp() {
+    console.log("get otp", "THIS IS Data field");
+    fetch("https://scserver.onrender.com/api/user/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ number: phone }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data, "this is data");
+        if (data.status === "success") {
+          setRandomOtp(data.otp);
+          otp = data.otp;
+          // console.log(randomOtp, "randomOtp");
+          toast({
+            title: "OTP sent successfully",
+            description: `Your OTP is ${data.otp}.`,
+            status: "success",
+            duration: 9000,
+            isClosable: true,
+            position: "top",
+          });
+        } else alert("Otp didn't sent");
+      });
+  }
   function ToastExample() {
-    const toast = useToast();
     return (
       <button
         className={styles.otp_btn}
@@ -43,17 +99,8 @@ const Login = () => {
           if (phone.length != 10) {
             alert("Please enter a valid phone number");
           } else {
-            const ranOtp = Math.floor(Math.random() * (9999 - 1000 + 1) + 1000);
-            toast({
-              title: "OTP sent successfully",
-              description: `Your OTP is ${ranOtp}.`,
-              status: "success",
-              duration: 9000,
-              isClosable: true,
-              position: "top",
-            });
-
-            setRandomOtp(ranOtp);
+            //const ranOtp = Math.floor(Math.random() * (9999 - 1000 + 1) + 1000);
+            getOtp();
 
             setStatus(true);
           }
@@ -78,6 +125,7 @@ const Login = () => {
         </Button>
         {randomOtp == pin ? (
           <Modal isOpen={isOpen} onClose={onClose}>
+            {getAccessToken(pin)}
             <ModalOverlay />
 
             <ModalContent>
@@ -144,6 +192,8 @@ const Login = () => {
 
   const handleOtp = (value) => {
     setPin(value);
+    console.log(value, "this is value");
+    console.log(otp, "This is otp");
   };
 
   return (
@@ -185,6 +235,8 @@ const Login = () => {
           >
             <HStack>
               <PinInput value={pin} onComplete={handleOtp} otp>
+                <PinInputField />
+                <PinInputField />
                 <PinInputField />
                 <PinInputField />
                 <PinInputField />
