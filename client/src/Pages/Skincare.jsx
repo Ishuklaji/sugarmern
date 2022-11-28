@@ -48,10 +48,8 @@ function Skincare() {
   const [prod, setProd] = useState("");
   async function getData(url) {
     try {
-      //setLoading(true)
       var res = await fetch(url);
       var res2 = await res.json();
-      console.log(res2, "res2 data");
       setData(res2.data.products);
     } finally {
       setLoading(false);
@@ -64,16 +62,17 @@ function Skincare() {
   }, [order, prod]);
 
   function setValue(e) {
-    let url =
-      "https://scserver.onrender.com/api/products?sortBy=price&sortOrder=";
     if (e.target.value === "1") {
-      data = data.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+      data.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
     } else {
-      data = data.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+      data.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
     }
     console.log(data, "data");
-    let newArr = [...data];
-    setData(newArr);
+    let newArr = [];
+    for (let i = 0; i < data.length; i++) {
+      newArr.push(data[i]);
+    }
+    setData([...newArr]);
   }
 
   function resetCheckBox() {
@@ -97,12 +96,26 @@ function Skincare() {
     if (checkedItems[3] == true) {
       key += "brushes,";
     }
-    if (checkedItems[3] == true) {
+    if (checkedItems[4] == true) {
       key += "eye";
     }
     if (key !== "?cat=") url += key;
     console.log(url, "urls");
     getData(url);
+    shuffleArray(data);
+    let arr = [];
+    for (let i = 0; i < 12; i++) {
+      arr.push(data[i]);
+    }
+    setData(arr);
+  }
+  function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
   }
 
   return (
