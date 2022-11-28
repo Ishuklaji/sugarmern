@@ -51,7 +51,6 @@ function Skincare() {
       //setLoading(true)
       var res = await fetch(url);
       var res2 = await res.json();
-      console.log(res2);
       setData(res2.data.products);
     } finally {
       setLoading(false);
@@ -83,12 +82,12 @@ function Skincare() {
   }
 
   function resetCheckBox() {
-    console.log("reset done");
     setCheckedItems([false, false, false, false, false]);
+    setCheckBox();
   }
 
   function setCheckBox() {
-    let url = "https://scserver.onrender.com/api/products?pageSize=12&page=1";
+    let url = "https://scserver.onrender.com/api/products";
     getData(url);
     let key = "";
     if (checkedItems[0] == true) {
@@ -119,7 +118,7 @@ function Skincare() {
     }
 
     setTimeout(() => {
-      shuffleArray(data);
+      //shuffleArray(data);
       setData(data);
     }, 1000);
   }

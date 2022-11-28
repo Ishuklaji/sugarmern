@@ -11,7 +11,6 @@ export default function Search() {
 
   const searchQuery = useSelector((state) => state.cart.searchState);
   const q = searchParams.get("q");
-  console.log("this is search query", searchQuery);
   const getData = async () => {
     try {
       setLoading(true);
@@ -19,9 +18,7 @@ export default function Search() {
         `https://scserver.onrender.com/api/products?search=${searchQuery}`
       );
       let data = await res.json();
-      console.log(searchQuery);
       setProducts(data.data.products);
-      console.log("this is search query", data);
       setSearchParams({ q: searchQuery });
     } finally {
       setLoading(false);

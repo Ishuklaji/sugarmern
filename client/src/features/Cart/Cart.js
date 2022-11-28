@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+const userName = localStorage.getItem("userName") || "Login/Register";
 export const cart = createSlice({
   name: "cart",
   initialState: {
     cartItems: [],
     searchState: "",
-    username: "Login/Register",
+    username: userName,
+    faveItems: [],
   },
   reducers: {
     addToCart: (state, action) => {
@@ -46,24 +47,19 @@ export const cart = createSlice({
     },
     toggleUsername: (state, action) => {
       state.username = action.payload;
+      localStorage.setItem("userName", state.username);
     },
-    /* addtoCart:(state,action)=>{
-        state.cartItems.push(action.payload);
-        
+    addToFav: (state, action) => {
+      const itemInCart = state.cartItems.find(
+        (item) => item.id === action.payload.id
+      );
+      if (itemInCart) {
+        itemInCart.quantity++;
+        itemInCart.isFav = true;
+      } else {
+        state.faveItems.push({ ...action.payload, quantity: 1 });
+      }
     },
-    increment: (state) => {
-      console.log("hi")
-      console.log(state.cartItems[0].quantity)
-      state.cartItems.quantity+= 1
-      
-      
-    },
-    decrement: (state) => {
-      state.cartItems.quantity -= 1
-    },/*
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
-    }, */
   },
 });
 
@@ -76,6 +72,7 @@ export const {
   removeAll,
   toggleSearch,
   toggleUsername,
+  addToFav,
 } = cart.actions;
 
 export default cart.reducer;

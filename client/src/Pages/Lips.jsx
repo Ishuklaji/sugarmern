@@ -33,7 +33,6 @@ function Lips() {
       //setLoading(true)
       var res = await fetch(url)
       var res2 = await res.json();
-      console.log(res2);
       setData(res2);
     }
     finally {

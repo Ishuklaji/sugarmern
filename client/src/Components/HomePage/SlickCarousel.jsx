@@ -12,7 +12,6 @@ export default function SimpleSlider() {
   const cart = useSelector((state) => state.cart.cartItems);
   const [imageUrls, setImageUrls] = useState([]);
   const [justinImages, setJustinImages] = useState([]);
-  console.log(cart);
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (

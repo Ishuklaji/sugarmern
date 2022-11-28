@@ -56,13 +56,10 @@ const login = async (req, res) => {
         JWT_SECRET
       );
 
-      console.log(token, "token");
       // Verifying...
       let result = jwt.verify(token, JWT_SECRET);
-      console.log(result, "result or payload");
       // Decoding...
       result = jwt.decode(token);
-      console.log(result, "decrypted result");
 
       return res.send({
         status: "success",
@@ -84,15 +81,12 @@ const login = async (req, res) => {
 
 const userLoggedIn = async (req, res) => {
   try {
-    console.log(req.headers, "header");
     let token = req.headers.authorization || "";
 
     token = token.split(" ")[1];
-    console.log(token, "token");
 
     if (token) {
       const result = jwt.verify(token, JWT_SECRET);
-      console.log(result, "result or user");
       let user = await userModel.findById(result._id);
 
       user = user.toJSON();

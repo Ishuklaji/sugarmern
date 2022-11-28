@@ -36,6 +36,7 @@ const Login = () => {
   const [status, setStatus] = useState(false);
   const toast = useToast();
   const [accessToken, setAccessToken] = useState("");
+  const [userDetails, setUserDetails] = useState({});
 
   function getAccessToken(pin) {
     fetch("https://scserver.onrender.com/api/user/signup/verify", {
@@ -43,29 +44,22 @@ const Login = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ number: phone, otp: randomOtp }),
+      body: JSON.stringify({
+        number: phone,
+        otp: pin,
+        email: userDetails.email,
+        first_name: userDetails.first_name,
+        last_name: userDetails.last_name,
+      }),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.status === "success") {
-          setRandomOtp(data.otp);
-          otp = data.otp;
-          // console.log(randomOtp, "randomOtp");
-          toast({
-            title: "OTP sent successfully",
-            description: `Your OTP is ${data.otp}.`,
-            status: "success",
-            duration: 9000,
-            isClosable: true,
-            position: "top",
-          });
-        } else alert("Otp didn't sent");
+        setAccessToken(data.token);
       });
   }
 
   let otp = "";
   function getOtp() {
-    console.log("get otp", "THIS IS Data field");
     fetch("https://scserver.onrender.com/api/user/signup", {
       method: "POST",
       headers: {
@@ -75,11 +69,9 @@ const Login = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data, "this is data");
         if (data.status === "success") {
           setRandomOtp(data.otp);
           otp = data.otp;
-          // console.log(randomOtp, "randomOtp");
           toast({
             title: "OTP sent successfully",
             description: `Your OTP is ${data.otp}.`,
@@ -133,15 +125,39 @@ const Login = () => {
               <ModalCloseButton />
               <ModalBody>
                 <FormControl isRequired>
-                  <FormLabel>First name</FormLabel>
+                  <FormLabel
+                    onChange={(e) => {
+                      setUserDetails({
+                        ...userDetails,
+                        first_name: e.target.value,
+                      });
+                    }}
+                  >
+                    First name
+                  </FormLabel>
                   <Input
                     placeholder="First name"
                     value={userName}
                     onChange={handleName}
                   />
-                  <FormLabel>Last name</FormLabel>
+                  <FormLabel
+                    onChange={(e) => {
+                      setUserDetails({
+                        ...userDetails,
+                        last_name: e.target.value,
+                      });
+                    }}
+                  >
+                    Last name
+                  </FormLabel>
                   <Input placeholder="Last name" />
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel
+                    onChange={(e) => {
+                      setUserDetails({ ...userDetails, email: e.target.value });
+                    }}
+                  >
+                    Email
+                  </FormLabel>
                   <Input placeholder="example@gmail.com" />
                 </FormControl>
               </ModalBody>
@@ -155,7 +171,6 @@ const Login = () => {
                     color="white"
                     onClick={() => {
                       dispatch(toggleUsername(userName));
-                      console.log(userName);
                     }}
                   >
                     Sign Me Up
@@ -192,8 +207,6 @@ const Login = () => {
 
   const handleOtp = (value) => {
     setPin(value);
-    console.log(value, "this is value");
-    console.log(otp, "This is otp");
   };
 
   return (

@@ -25,7 +25,7 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import CartProduct from "../Components/ProductBox/CartProduct";
 import { v4 as uuidv4 } from "uuid";
 import { addToCart, removeAll, toggleUsername } from "../features/Cart/Cart";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export default function Cart() {
@@ -43,6 +43,10 @@ export default function Cart() {
   const [coupon, setCoupon] = useState("");
   const [discount, setdiscount] = useState(0);
   const [isdiscount, setisdiscount] = useState(false);
+  const username = useSelector((state) => state.cart.username);
+  const toast = useToast();
+  const navigate = useNavigate();
+
   const getTotal = () => {
     let totalPrice = 0;
     cart.forEach((item) => {
@@ -71,15 +75,12 @@ export default function Cart() {
   };
 
   const getDiscount = () => {
-    console.log(coupon === "HEYW");
     if (coupon === "HEYW") {
       setisdiscount(true);
       let dis = getFinal().finalPrice / 5;
       setdiscount(dis);
-      console.log(dis);
     }
   };
-  console.log(discount);
   const getFinal = () => {
     let finalPrice = Math.round(
       getTotal().totalPrice + getTax().tax + getShipping().shipping - discount
@@ -209,19 +210,30 @@ export default function Cart() {
           }}
           /* backgroundColor='black' color='white' width='300px' size='lg' */
           onClick={() => {
-            const reqItem = [];
+            if (username === "Login/Register") {
+              toast({
+                title: "Please login",
+                description: `Please login to place order`,
+                status: "success",
+                duration: 9000,
+                isClosable: true,
+                position: "top",
+              });
+              navigate("/login");
+            } else {
+              const reqItem = [];
 
-            cart.forEach((item) => {
-              const obj = {
-                name: item.description,
-                id: item.id,
-                price: Math.floor(item.price),
-                quantity: item.quantity,
-              };
-              reqItem.push(obj);
-            });
-            payment(reqItem);
-            // console.log(cart);
+              cart.forEach((item) => {
+                const obj = {
+                  name: item.description,
+                  id: item.id,
+                  price: Math.floor(item.price),
+                  quantity: item.quantity,
+                };
+                reqItem.push(obj);
+              });
+              payment(reqItem);
+            }
           }}
         >
           ₹{getFinal().finalPrice} PLACE ORDER
@@ -278,7 +290,27 @@ export default function Cart() {
 
     return (
       <>
-        <Button onClick={onOpen} mr={3} mt="30px" bg="black" color="white">
+        <Button
+          onClick={() => {
+            if (username === "Login/Register") {
+              toast({
+                title: "Please login",
+                description: `Please login to place order`,
+                status: "success",
+                duration: 9000,
+                isClosable: true,
+                position: "top",
+              });
+              navigate("/login");
+            } else {
+              onOpen();
+            }
+          }}
+          mr={3}
+          mt="30px"
+          bg="black"
+          color="white"
+        >
           {" "}
           ₹{getFinal().finalPrice} PLACE ORDER
         </Button>

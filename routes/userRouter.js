@@ -28,7 +28,6 @@ router.post("/signup", async (req, res) => {
   });
 
   const number = req.body.number;
-  console.log(OTP);
 
   const greenwebsms = new URLSearchParams();
   greenwebsms.append("token", "05fa33c4cb50c35f4a258e85ccf50509");
