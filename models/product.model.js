@@ -10,6 +10,7 @@ const productSchema = new mongoose.Schema({
   feature: String,
   formulation: String,
   conern: String,
+  catg: String,
 });
 
 const productModel = mongoose.model("products", productSchema);

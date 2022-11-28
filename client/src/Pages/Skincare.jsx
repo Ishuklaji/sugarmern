@@ -51,20 +51,13 @@ function Skincare() {
       //setLoading(true)
       var res = await fetch(url);
       var res2 = await res.json();
+      // console.log(res2, "res2 data");
       setData(res2.data.products);
     } finally {
       setLoading(false);
     }
   }
 
-  function shuffleArray(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-  }
   useEffect(() => {
     let url = "https://scserver.onrender.com/api/products";
     getData(url);
@@ -74,11 +67,13 @@ function Skincare() {
     let url =
       "https://scserver.onrender.com/api/products?sortBy=price&sortOrder=";
     if (e.target.value === "1") {
-      url += "asc";
+      data = data.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
     } else {
-      url += "desc";
+      data = data.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
     }
-    getData(url);
+    console.log(data, "data");
+    let newArr = [...data];
+    setData(newArr);
   }
 
   function resetCheckBox() {
@@ -88,39 +83,25 @@ function Skincare() {
 
   function setCheckBox() {
     let url = "https://scserver.onrender.com/api/products";
-    getData(url);
-    let key = "";
+    let key = "/cat?cat=";
     if (checkedItems[0] == true) {
-      key = "makeup";
-      url = `https://scserver.onrender.com/api/products?search=${key}`;
-      getData(url);
+      key += "makeup,";
     }
     if (checkedItems[1] == true) {
-      key = "lips";
-      url = `https://scserver.onrender.com/api/products?search=${key}`;
-      getData(url);
+      key += "Lips,";
     }
 
     if (checkedItems[2] == true) {
-      key = "face";
-      url = `https://scserver.onrender.com/api/products?search=${key}`;
-      getData(url);
+      key += "Face,";
     }
     if (checkedItems[3] == true) {
-      key = "brushes";
-      url = `https://scserver.onrender.com/api/products?search=${key}`;
-      getData(url);
+      key += "brushes,";
     }
     if (checkedItems[3] == true) {
-      key = "eye";
-      url = `https://scserver.onrender.com/api/products?search=${key}`;
-      getData(url);
+      key += "eye";
     }
-
-    setTimeout(() => {
-      //shuffleArray(data);
-      setData(data);
-    }, 1000);
+    if (key !== "") url += key;
+    getData(url);
   }
 
   return (

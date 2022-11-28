@@ -32,6 +32,7 @@ async function getProductsPaginated(req, res) {
         },
       })
       .count();
+    // console.log(cat, search);
     // cat = cat.toLowerCase();
     const products = await productModel
       .find({
@@ -62,34 +63,44 @@ async function getProductsPaginated(req, res) {
   }
 }
 
+async function getProductsByCategory(req, res) {
+  try {
+    let { cat = "", sortBy = "createdAt", sortOrder = "desc" } = req.query;
+
+    let arr = cat.split(",");
+    allTotal = [];
+
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] !== "") {
+        const products = await productModel
+          .find({
+            catg: {
+              $regex: arr[i],
+            },
+          })
+          .sort({
+            [sortBy]: sortOrder === "asc" ? 1 : -1,
+          });
+        allTotal = [...allTotal, ...products];
+      }
+    }
+    // console.log(allTotal.length);
+    return res.send({
+      status: "success",
+      data: {
+        products: allTotal,
+      },
+    });
+  } catch (err) {
+    return res.status(500).send({
+      status: "error",
+      message: "Something went wrong",
+    });
+  }
+}
 async function createProduct(req, res) {
   const product = req.body;
-  //   const { user } = req;
-
-  //   if (!user) {
-  //     return res.status(400).send({
-  //       status: "error",
-  //       message: "User not logged in",
-  //     });
-  //   }
-
-  //   blog.author = {
-  //     _id: user._id,
-  //     name: user.name,
-  //     image: user.image,
-  //   };
-
   const blogData = await productModel.create(product);
-
-  // No need to await this
-  //   productModel
-  //     .findByIdAndUpdate(user._id, {
-  //       $inc: {
-  //         blogsCount: 1,
-  //       },
-  //     })
-  //     .then(() => {});
-
   return res.send({
     status: "success",
     data: blogData,
@@ -112,4 +123,5 @@ module.exports = {
   createProduct,
   getProductsPaginated,
   getProductsById,
+  getProductsByCategory,
 };

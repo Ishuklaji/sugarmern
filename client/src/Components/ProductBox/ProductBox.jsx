@@ -64,7 +64,6 @@ function ProductBox(props) {
             }}
           >
             {" "}
-            {console.log(payload, "this is the payload")}
             {payload.isFav ? (
               <IconButton
                 ref={ref}
