@@ -69,7 +69,15 @@ async function getProductsByCategory(req, res) {
 
     let arr = cat.split(",");
     allTotal = [];
-
+    if (arr.length == 1) {
+      const products = await productModel.find();
+      return res.send({
+        status: "success",
+        data: {
+          products,
+        },
+      });
+    }
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] !== "") {
         const products = await productModel

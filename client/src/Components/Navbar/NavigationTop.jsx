@@ -42,6 +42,8 @@ function NavigationTop() {
     cart.forEach((item) => {
       total += item.quantity;
     });
+    if (total == 0) total = parseInt(localStorage.getItem("cartItems"));
+    localStorage.setItem("cartItems", total);
     return total;
   };
 
@@ -50,6 +52,8 @@ function NavigationTop() {
     heart.forEach((item) => {
       total += item.quantity;
     });
+    if (total == 0) total = parseInt(localStorage.getItem("favItems"));
+    localStorage.setItem("favItems", total);
     return total;
   };
 
