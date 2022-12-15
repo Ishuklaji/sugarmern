@@ -152,7 +152,7 @@ export default function Cart() {
 
   const payment = (cartItems) => {
     fetch(
-      "https://express-stripe-server.herokuapp.com/create-checkout-session",
+      "https://stripe-express-server.onrender.com/create-checkout-session",
       {
         method: "POST",
         headers: {
@@ -161,8 +161,8 @@ export default function Cart() {
         body: JSON.stringify({
           items: [...cartItems],
           urls: {
-            success: `http://localhost:3000/`,
-            cancle: `http://localhost:3000/cart`,
+            success: `https://sugar-cosmetics-mern.netlify.app`,
+            cancle: `https://sugar-cosmetics-mern.netlify.app/cart`,
           },
         }),
       }
@@ -175,7 +175,7 @@ export default function Cart() {
       })
       .then(({ url }) => {
         // dispatch();
-        if (url === "http://localhost:3000/") {
+        if (url === "https://sugar-cosmetics-mern.netlify.app") {
           setTimeout(() => dispatch(removeAll()), 2000);
         }
         setInterval(() => {
@@ -233,6 +233,8 @@ export default function Cart() {
                 reqItem.push(obj);
               });
               payment(reqItem);
+              localStorage.setItem("cartItems", 0);
+              dispatch(toggleUsername("dsr"));
             }
           }}
         >
